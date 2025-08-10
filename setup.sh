@@ -320,18 +320,33 @@ deploy_acep_labs() {
     echo -e "${GREEN}ACEP CYBER LABS DEPLOYMENT${NC}"
     echo -e "${PURPLE}═══════════════════════════════════════════════════════════════${NC}"
     
+    # Find the source directory (where the original files are)
+    SOURCE_DIR=""
+    if [ -f "./index.php" ]; then
+        SOURCE_DIR="."
+    elif [ -f "../index.php" ]; then
+        SOURCE_DIR=".."
+    elif [ -f "../../index.php" ]; then
+        SOURCE_DIR="../.."
+    else
+        print_status "ERROR" "Cannot find ACEP Cyber Labs source files. Please run this script from the project directory or its parent."
+        return 1
+    fi
+    
+    print_status "INFO" "Source directory found: $SOURCE_DIR"
+    
     # Clean existing files in web root
     print_status "INFO" "Cleaning existing web files..."
     sudo rm -rf /var/www/html/*
     
-    # Copy files directly to web root
+    # Copy files from source to web root
     print_status "INFO" "Copying application files..."
-    sudo cp -r index.php /var/www/html/ 2>/dev/null || sudo cp index.php /var/www/html/
-    sudo cp -r config.php /var/www/html/ 2>/dev/null || sudo cp config.php /var/www/html/
-    sudo cp -r assets /var/www/html/ 2>/dev/null || sudo cp -r assets /var/www/html/
-    sudo cp -r labs /var/www/html/ 2>/dev/null || sudo cp -r labs /var/www/html/
-    sudo cp -r README.md /var/www/html/ 2>/dev/null || sudo cp README.md /var/www/html/
-    sudo cp -r setup.sh /var/www/html/ 2>/dev/null || sudo cp setup.sh /var/www/html/
+    sudo cp -r $SOURCE_DIR/index.php /var/www/html/
+    sudo cp -r $SOURCE_DIR/config.php /var/www/html/
+    sudo cp -r $SOURCE_DIR/assets /var/www/html/
+    sudo cp -r $SOURCE_DIR/labs /var/www/html/
+    sudo cp -r $SOURCE_DIR/README.md /var/www/html/
+    sudo cp -r $SOURCE_DIR/setup.sh /var/www/html/
     
     # Verify files were copied
     if [ -f /var/www/html/index.php ]; then
@@ -677,18 +692,33 @@ deploy_acep_labs_root() {
     echo -e "${GREEN}ACEP CYBER LABS DEPLOYMENT (ROOT MODE)${NC}"
     echo -e "${PURPLE}═══════════════════════════════════════════════════════════════${NC}"
     
+    # Find the source directory (where the original files are)
+    SOURCE_DIR=""
+    if [ -f "./index.php" ]; then
+        SOURCE_DIR="."
+    elif [ -f "../index.php" ]; then
+        SOURCE_DIR=".."
+    elif [ -f "../../index.php" ]; then
+        SOURCE_DIR="../.."
+    else
+        print_status "ERROR" "Cannot find ACEP Cyber Labs source files. Please run this script from the project directory or its parent."
+        return 1
+    fi
+    
+    print_status "INFO" "Source directory found: $SOURCE_DIR"
+    
     # Clean existing files in web root
     print_status "INFO" "Cleaning existing web files..."
     rm -rf /var/www/html/*
     
-    # Copy files directly to web root
+    # Copy files from source to web root
     print_status "INFO" "Copying application files..."
-    cp -r index.php /var/www/html/ 2>/dev/null || cp index.php /var/www/html/
-    cp -r config.php /var/www/html/ 2>/dev/null || cp config.php /var/www/html/
-    cp -r assets /var/www/html/ 2>/dev/null || cp -r assets /var/www/html/
-    cp -r labs /var/www/html/ 2>/dev/null || cp -r labs /var/www/html/
-    cp -r README.md /var/www/html/ 2>/dev/null || cp README.md /var/www/html/
-    cp -r setup.sh /var/www/html/ 2>/dev/null || cp setup.sh /var/www/html/
+    cp -r $SOURCE_DIR/index.php /var/www/html/
+    cp -r $SOURCE_DIR/config.php /var/www/html/
+    cp -r $SOURCE_DIR/assets /var/www/html/
+    cp -r $SOURCE_DIR/labs /var/www/html/
+    cp -r $SOURCE_DIR/README.md /var/www/html/
+    cp -r $SOURCE_DIR/setup.sh /var/www/html/
     
     # Verify files were copied
     if [ -f /var/www/html/index.php ]; then

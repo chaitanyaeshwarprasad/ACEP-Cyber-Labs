@@ -58,7 +58,6 @@ A modern ethical hacking lab platform featuring realistic web vulnerabilities (S
 
 5. **Run the automated setup script:**
    ```bash
-   cd /var/www/html/
    chmod +x setup.sh
    ./setup.sh
    ```
@@ -182,7 +181,6 @@ git clone https://github.com/chaitanyaeshwarprasad/ACEP-Cyber-Labs.git
 cd ACEP-Cyber-Labs
 sudo cp * /var/www/html/
 sudo chmod -R 777 /var/www/html/
-cd /var/www/html/
 ./setup.sh
 ```
 
