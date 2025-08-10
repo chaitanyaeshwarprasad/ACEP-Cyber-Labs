@@ -47,6 +47,7 @@ A modern ethical hacking lab platform featuring realistic web vulnerabilities (S
    sudo cp -r assets /var/www/html/
    sudo cp -r labs /var/www/html/
    sudo cp README.md /var/www/html/
+   sudo cp setup.sh /var/www/html/
    ```
 
 3. **Set proper permissions:**
@@ -184,6 +185,7 @@ sudo cp config.php /var/www/html/
 sudo cp -r assets /var/www/html/
 sudo cp -r labs /var/www/html/
 sudo cp README.md /var/www/html/
+sudo cp setup.sh /var/www/html/
 sudo chmod -R 777 /var/www/html/
 cd /var/www/html/
 ./setup.sh
