@@ -326,11 +326,18 @@ deploy_acep_labs() {
     
     # Copy files directly to web root
     print_status "INFO" "Copying application files..."
-    sudo cp index.php /var/www/html/
-    sudo cp config.php /var/www/html/
-    sudo cp -r assets /var/www/html/
-    sudo cp -r labs /var/www/html/
-    sudo cp README.md /var/www/html/
+    sudo cp -r index.php /var/www/html/ 2>/dev/null || sudo cp index.php /var/www/html/
+    sudo cp -r config.php /var/www/html/ 2>/dev/null || sudo cp config.php /var/www/html/
+    sudo cp -r assets /var/www/html/ 2>/dev/null || sudo cp -r assets /var/www/html/
+    sudo cp -r labs /var/www/html/ 2>/dev/null || sudo cp -r labs /var/www/html/
+    sudo cp -r README.md /var/www/html/ 2>/dev/null || sudo cp README.md /var/www/html/
+    
+    # Verify files were copied
+    if [ -f /var/www/html/index.php ]; then
+        print_status "SUCCESS" "Main application files copied successfully"
+    else
+        print_status "WARNING" "Some files may not have been copied properly"
+    fi
     
     # Set permissions
     print_status "INFO" "Setting proper permissions..."
@@ -675,11 +682,18 @@ deploy_acep_labs_root() {
     
     # Copy files directly to web root
     print_status "INFO" "Copying application files..."
-    cp index.php /var/www/html/
-    cp config.php /var/www/html/
-    cp -r assets /var/www/html/
-    cp -r labs /var/www/html/
-    cp README.md /var/www/html/
+    cp -r index.php /var/www/html/ 2>/dev/null || cp index.php /var/www/html/
+    cp -r config.php /var/www/html/ 2>/dev/null || cp config.php /var/www/html/
+    cp -r assets /var/www/html/ 2>/dev/null || cp -r assets /var/www/html/
+    cp -r labs /var/www/html/ 2>/dev/null || cp -r labs /var/www/html/
+    cp -r README.md /var/www/html/ 2>/dev/null || cp README.md /var/www/html/
+    
+    # Verify files were copied
+    if [ -f /var/www/html/index.php ]; then
+        print_status "SUCCESS" "Main application files copied successfully"
+    else
+        print_status "WARNING" "Some files may not have been copied properly"
+    fi
     
     # Set permissions
     print_status "INFO" "Setting proper permissions..."
