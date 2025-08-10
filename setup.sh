@@ -331,6 +331,7 @@ deploy_acep_labs() {
     sudo cp -r assets /var/www/html/ 2>/dev/null || sudo cp -r assets /var/www/html/
     sudo cp -r labs /var/www/html/ 2>/dev/null || sudo cp -r labs /var/www/html/
     sudo cp -r README.md /var/www/html/ 2>/dev/null || sudo cp README.md /var/www/html/
+    sudo cp -r setup.sh /var/www/html/ 2>/dev/null || sudo cp setup.sh /var/www/html/
     
     # Verify files were copied
     if [ -f /var/www/html/index.php ]; then
@@ -687,6 +688,7 @@ deploy_acep_labs_root() {
     cp -r assets /var/www/html/ 2>/dev/null || cp -r assets /var/www/html/
     cp -r labs /var/www/html/ 2>/dev/null || cp -r labs /var/www/html/
     cp -r README.md /var/www/html/ 2>/dev/null || cp README.md /var/www/html/
+    cp -r setup.sh /var/www/html/ 2>/dev/null || cp setup.sh /var/www/html/
     
     # Verify files were copied
     if [ -f /var/www/html/index.php ]; then
