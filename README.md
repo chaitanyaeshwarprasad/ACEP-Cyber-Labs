@@ -42,25 +42,25 @@ A modern ethical hacking lab platform featuring realistic web vulnerabilities (S
 
 2. **Copy to web root:**
    ```bash
-   sudo cp -r . /var/www/html/acep-cyber-labs/
+   sudo cp -r . /var/www/html/
    ```
 
 3. **Set proper permissions:**
    ```bash
-   sudo chown -R www-data:www-data /var/www/html/acep-cyber-labs/
-   sudo chmod -R 777 /var/www/html/acep-cyber-labs/
+   sudo chown -R www-data:www-data /var/www/html/
+   sudo chmod -R 777 /var/www/html/
    ```
 
 4. **Run the automated setup script:**
    ```bash
-   cd /var/www/html/acep-cyber-labs/
+   cd /var/www/html/
    chmod +x setup.sh
    ./setup.sh
    ```
 
 5. **Access the application:**
    ```
-   http://127.0.0.1/acep-cyber-labs/
+   http://127.0.0.1/
    ```
 
 ## 🛠️ Technology Stack
@@ -175,13 +175,13 @@ This project is created for educational purposes. Please respect ethical hacking
 # Quick start
 git clone https://github.com/chaitanyaeshwarprasad/ACEP-Cyber-Labs.git
 cd ACEP-Cyber-Labs
-sudo cp -r . /var/www/html/acep-cyber-labs/
-sudo chmod -R 777 /var/www/html/acep-cyber-labs/
-cd /var/www/html/acep-cyber-labs/
+sudo cp -r . /var/www/html/
+sudo chmod -R 777 /var/www/html/
+cd /var/www/html/
 ./setup.sh
 ```
 
-**Access your lab at:** `http://127.0.0.1/acep-cyber-labs/`
+**Access your lab at:** `http://127.0.0.1/`
 
 ---
 

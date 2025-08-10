@@ -203,9 +203,9 @@ configure_apache() {
 <VirtualHost *:80>
     ServerName localhost
     ServerAdmin webmaster@localhost
-    DocumentRoot /var/www/html/acep-cyber-labs
+    DocumentRoot /var/www/html
     
-    <Directory /var/www/html/acep-cyber-labs>
+    <Directory /var/www/html>
         AllowOverride All
         Require all granted
     </Directory>
@@ -320,34 +320,23 @@ deploy_acep_labs() {
     echo -e "${GREEN}ACEP CYBER LABS DEPLOYMENT${NC}"
     echo -e "${PURPLE}═══════════════════════════════════════════════════════════════${NC}"
     
-    # Create web directory
-    print_status "INFO" "Creating web directory..."
-    sudo mkdir -p /var/www/html/acep-cyber-labs
+    # Clean existing files in web root
+    print_status "INFO" "Cleaning existing web files..."
+    sudo rm -rf /var/www/html/*
     
-    # Remove existing content if any
-    print_status "INFO" "Cleaning web directory..."
-    sudo rm -rf /var/www/html/acep-cyber-labs/*
+    # Copy files directly to web root
+    print_status "INFO" "Copying application files..."
+    sudo cp index.php /var/www/html/
+    sudo cp config.php /var/www/html/
+    sudo cp -r assets /var/www/html/
+    sudo cp -r labs /var/www/html/
+    sudo cp README.md /var/www/html/
     
-    # Copy project files (excluding the current directory reference)
-    print_status "INFO" "Copying project files..."
-    sudo cp -r index.php /var/www/html/acep-cyber-labs/ 2>/dev/null || true
-    sudo cp -r config.php /var/www/html/acep-cyber-labs/ 2>/dev/null || true
-    sudo cp -r assets /var/www/html/acep-cyber-labs/ 2>/dev/null || true
-    sudo cp -r labs /var/www/html/acep-cyber-labs/ 2>/dev/null || true
-    sudo cp -r README.md /var/www/html/acep-cyber-labs/ 2>/dev/null || true
-    
-    # Verify files were copied
-    if [ -f /var/www/html/acep-cyber-labs/index.php ]; then
-        print_status "SUCCESS" "Main application files copied successfully"
-    else
-        print_status "WARNING" "Some files may not have been copied properly"
-    fi
-    
-    # Set proper permissions
+    # Set permissions
     print_status "INFO" "Setting proper permissions..."
-    sudo chown -R www-data:www-data /var/www/html/acep-cyber-labs/
-    sudo chmod -R 755 /var/www/html/acep-cyber-labs/
-    sudo chmod -R 777 /var/www/html/acep-cyber-labs/labs/upload/ 2>/dev/null || true
+    sudo chown -R www-data:www-data /var/www/html
+    sudo chmod -R 755 /var/www/html
+    sudo chmod 777 /var/www/html/labs/upload/ 2>/dev/null || true
     
     print_status "SUCCESS" "ACEP CYBER LABS deployed successfully!"
 }
@@ -430,7 +419,7 @@ final_configuration() {
         print_status "WARNING" "Web server is not responding"
     fi
     
-    if [ -f /var/www/html/acep-cyber-labs/index.php ]; then
+    if [ -f /var/www/html/index.php ]; then
         print_status "SUCCESS" "ACEP CYBER LABS application is accessible"
     else
         print_status "ERROR" "ACEP CYBER LABS application not found"
@@ -563,9 +552,9 @@ configure_apache_root() {
 <VirtualHost *:80>
     ServerName localhost
     ServerAdmin webmaster@localhost
-    DocumentRoot /var/www/html/acep-cyber-labs
+    DocumentRoot /var/www/html
     
-    <Directory /var/www/html/acep-cyber-labs>
+    <Directory /var/www/html>
         AllowOverride All
         Require all granted
     </Directory>
@@ -680,34 +669,23 @@ deploy_acep_labs_root() {
     echo -e "${GREEN}ACEP CYBER LABS DEPLOYMENT (ROOT MODE)${NC}"
     echo -e "${PURPLE}═══════════════════════════════════════════════════════════════${NC}"
     
-    # Create web directory
-    print_status "INFO" "Creating web directory..."
-    mkdir -p /var/www/html/acep-cyber-labs
+    # Clean existing files in web root
+    print_status "INFO" "Cleaning existing web files..."
+    rm -rf /var/www/html/*
     
-    # Remove existing content if any
-    print_status "INFO" "Cleaning web directory..."
-    rm -rf /var/www/html/acep-cyber-labs/*
+    # Copy files directly to web root
+    print_status "INFO" "Copying application files..."
+    cp index.php /var/www/html/
+    cp config.php /var/www/html/
+    cp -r assets /var/www/html/
+    cp -r labs /var/www/html/
+    cp README.md /var/www/html/
     
-    # Copy project files (excluding the current directory reference)
-    print_status "INFO" "Copying project files..."
-    cp -r index.php /var/www/html/acep-cyber-labs/ 2>/dev/null || true
-    cp -r config.php /var/www/html/acep-cyber-labs/ 2>/dev/null || true
-    cp -r assets /var/www/html/acep-cyber-labs/ 2>/dev/null || true
-    cp -r labs /var/www/html/acep-cyber-labs/ 2>/dev/null || true
-    cp -r README.md /var/www/html/acep-cyber-labs/ 2>/dev/null || true
-    
-    # Verify files were copied
-    if [ -f /var/www/html/acep-cyber-labs/index.php ]; then
-        print_status "SUCCESS" "Main application files copied successfully"
-    else
-        print_status "WARNING" "Some files may not have been copied properly"
-    fi
-    
-    # Set proper permissions
+    # Set permissions
     print_status "INFO" "Setting proper permissions..."
-    chown -R www-data:www-data /var/www/html/acep-cyber-labs/
-    chmod -R 755 /var/www/html/acep-cyber-labs/
-    chmod -R 777 /var/www/html/acep-cyber-labs/labs/upload/ 2>/dev/null || true
+    chown -R www-data:www-data /var/www/html
+    chmod -R 755 /var/www/html
+    chmod 777 /var/www/html/labs/upload/ 2>/dev/null || true
     
     print_status "SUCCESS" "ACEP CYBER LABS deployed successfully!"
 }
@@ -790,7 +768,7 @@ final_configuration_root() {
         print_status "WARNING" "Web server is not responding"
     fi
     
-    if [ -f /var/www/html/acep-cyber-labs/index.php ]; then
+    if [ -f /var/www/html/index.php ]; then
         print_status "SUCCESS" "ACEP CYBER LABS application is accessible"
     else
         print_status "ERROR" "ACEP CYBER LABS application not found"
