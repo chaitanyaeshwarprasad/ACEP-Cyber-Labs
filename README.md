@@ -60,7 +60,7 @@ A modern ethical hacking lab platform featuring realistic web vulnerabilities (S
 
 5. **Access the application:**
    ```
-   http://localhost/acep-cyber-labs/
+   http://127.0.0.1/acep-cyber-labs/
    ```
 
 ## 🛠️ Technology Stack
@@ -181,7 +181,7 @@ cd /var/www/html/acep-cyber-labs/
 ./setup.sh
 ```
 
-**Access your lab at:** `http://localhost/acep-cyber-labs/`
+**Access your lab at:** `http://127.0.0.1/acep-cyber-labs/`
 
 ---
 
