@@ -173,20 +173,7 @@ This project is created for educational purposes. Please respect ethical hacking
 
 ---
 
-## 🚀 Ready to Start?
 
-```bash
-# Quick start
-git clone https://github.com/chaitanyaeshwarprasad/ACEP-Cyber-Labs.git
-cd ACEP-Cyber-Labs
-sudo cp -r * /var/www/html/
-sudo chmod -R 777 /var/www/html/
-./setup.sh
-```
-
-**Access your lab at:** `http://127.0.0.1/`
-
----
 
 *Happy Learning! 🎓*
 
