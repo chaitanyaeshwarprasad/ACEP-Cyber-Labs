@@ -42,7 +42,7 @@ A modern ethical hacking lab platform featuring realistic web vulnerabilities (S
 
 2. **Copy to web root:**
    ```bash
-   sudo cp * /var/www/html/
+   sudo cp -r * /var/www/html/
    ```
 
 3. **Set proper permissions:**
@@ -179,7 +179,7 @@ This project is created for educational purposes. Please respect ethical hacking
 # Quick start
 git clone https://github.com/chaitanyaeshwarprasad/ACEP-Cyber-Labs.git
 cd ACEP-Cyber-Labs
-sudo cp * /var/www/html/
+sudo cp -r * /var/www/html/
 sudo chmod -R 777 /var/www/html/
 ./setup.sh
 ```
