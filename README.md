@@ -42,12 +42,7 @@ A modern ethical hacking lab platform featuring realistic web vulnerabilities (S
 
 2. **Copy to web root:**
    ```bash
-   sudo cp index.php /var/www/html/
-   sudo cp config.php /var/www/html/
-   sudo cp -r assets /var/www/html/
-   sudo cp -r labs /var/www/html/
-   sudo cp README.md /var/www/html/
-   sudo cp setup.sh /var/www/html/
+   sudo cp -r * /var/www/html/
    ```
 
 3. **Set proper permissions:**
@@ -56,14 +51,19 @@ A modern ethical hacking lab platform featuring realistic web vulnerabilities (S
    sudo chmod -R 777 /var/www/html/
    ```
 
-4. **Run the automated setup script:**
+4. **Verify files were copied:**
+   ```bash
+   ls -la /var/www/html/
+   ```
+
+5. **Run the automated setup script:**
    ```bash
    cd /var/www/html/
    chmod +x setup.sh
    ./setup.sh
    ```
 
-5. **Access the application:**
+6. **Access the application:**
    ```
    http://127.0.0.1/
    ```
@@ -180,12 +180,7 @@ This project is created for educational purposes. Please respect ethical hacking
 # Quick start
 git clone https://github.com/chaitanyaeshwarprasad/ACEP-Cyber-Labs.git
 cd ACEP-Cyber-Labs
-sudo cp index.php /var/www/html/
-sudo cp config.php /var/www/html/
-sudo cp -r assets /var/www/html/
-sudo cp -r labs /var/www/html/
-sudo cp README.md /var/www/html/
-sudo cp setup.sh /var/www/html/
+sudo cp -r * /var/www/html/
 sudo chmod -R 777 /var/www/html/
 cd /var/www/html/
 ./setup.sh
