@@ -167,10 +167,6 @@ This project is designed for educational purposes. If you find any issues or hav
 3. Make your changes
 4. Submit a pull request
 
-## 📄 License
-
-This project is created for educational purposes. Please respect ethical hacking principles and use responsibly.
-
 ---
 
 
